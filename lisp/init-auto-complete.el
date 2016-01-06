@@ -58,6 +58,13 @@
 (defun sanityinc/dabbrev-friend-buffer (other-buffer)
   (< (buffer-size other-buffer) (* 1 1024 1024)))
 
+;;; set the trigger key so that it can work together with yasnippet on tab key,
+;;; if the word exists in yasnippet, pressing tab will cause yasnippet to
+;;; activate, otherwise, auto-complete will
+
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
+
 (setq dabbrev-friend-buffer-function 'sanityinc/dabbrev-friend-buffer)
 
 
