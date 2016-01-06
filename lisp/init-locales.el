@@ -17,4 +17,10 @@
   (set-selection-coding-system (if (eq system-type 'windows-nt) 'utf-16-le 'utf-8))
   (prefer-coding-system 'utf-8))
 
+(setq-default tab-width 4)
+(setq-default tab-always-indent t)
+(setq-default indent-tabs-mode t)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
 (provide 'init-locales)

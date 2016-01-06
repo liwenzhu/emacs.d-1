@@ -21,18 +21,18 @@ ignored: use `custom-enabled-themes' instead."
 
 (unless (boundp 'custom-enabled-themes)
   (defun color-theme-terminal ()
-    (interactive)
-    (color-theme-sanityinc-solarized-dark))
+	(interactive)
+	(color-theme-sanityinc-solarized-dark))
 
   (defun apply-best-color-theme-for-frame-type (frame)
-    (with-selected-frame frame
-      (funcall (if window-system
-                   window-system-color-theme
-                 tty-color-theme))))
+	(with-selected-frame frame
+	  (funcall (if window-system
+				   window-system-color-theme
+				 tty-color-theme))))
 
   (defun reapply-color-themes ()
-    (interactive)
-    (mapcar 'apply-best-color-theme-for-frame-type (frame-list)))
+	(interactive)
+	(mapcar 'apply-best-color-theme-for-frame-type (frame-list)))
 
   (set-variable 'color-theme-is-global nil)
   (add-hook 'after-make-frame-functions 'apply-best-color-theme-for-frame-type)
@@ -51,8 +51,8 @@ ignored: use `custom-enabled-themes' instead."
 (defun reapply-themes ()
   "Forcibly load the themes listed in `custom-enabled-themes'."
   (dolist (theme custom-enabled-themes)
-    (unless (custom-theme-p theme)
-      (load-theme theme)))
+	(unless (custom-theme-p theme)
+	  (load-theme theme)))
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
 (add-hook 'after-init-hook 'reapply-themes)
